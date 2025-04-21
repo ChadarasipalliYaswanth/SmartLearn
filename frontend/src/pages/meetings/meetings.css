@@ -1,0 +1,57 @@
+.meetings-container {
+  min-height: calc(100vh - 200px);
+  padding-bottom: 60px;
+}
+
+.MuiCard-root:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.MuiCardContent-root {
+  position: relative;
+}
+
+.meeting-date {
+  color: #666;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.meeting-description {
+  margin-top: 12px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.meeting-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.join-button {
+  text-transform: none;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 6px 20px;
+}
+
+.create-meeting-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .meetings-container {
+    padding: 16px;
+  }
+  
+  .MuiTypography-h4 {
+    font-size: 1.75rem;
+  }
+} 

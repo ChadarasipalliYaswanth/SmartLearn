@@ -2,36 +2,74 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 40px; /* Increased horizontal padding */
   background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Softer and more prominent shadow */
+  position: sticky; /* Make header sticky */
+  top: 0;
+  z-index: 1000; /* Ensure header stays above other content */
+  transition: all 0.3s ease; /* Smooth transition for sticky effect */
 
   .logo {
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 28px; /* Slightly larger font size */
+    font-weight: 700; /* Bolder font weight */
     color: #8a4baf;
+    text-transform: uppercase; /* Uppercase text for a modern look */
+    letter-spacing: 1px; /* Add spacing between letters */
+    transition: color 0.3s ease; /* Smooth color transition */
+
+    &:hover {
+      color: #6a1b9a; /* Darker shade on hover */
+    }
 
     @media (max-width: 768px) {
-      font-size: 18px;
+      font-size: 20px; /* Adjusted font size for mobile */
     }
   }
 
   .link {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem; /* Increased gap between links */
+    align-items: center;
 
     @media (max-width: 768px) {
-      gap: 0.5rem;
+      gap: 1rem; /* Adjusted gap for mobile */
     }
 
     a {
       text-decoration: none;
       color: #333;
-      transition: 0.3s;
+      font-weight: 500; /* Medium font weight */
+      font-size: 16px; /* Slightly larger font size */
+      position: relative; /* For underline effect */
+      transition: color 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -5px; /* Position the underline */
+        left: 0;
+        width: 0; /* Start with no width */
+        height: 2px; /* Underline thickness */
+        background-color: #8a4baf; /* Underline color */
+        transition: width 0.3s ease; /* Smooth underline transition */
+      }
 
       &:hover {
-        color: #8a4baf;
+        color: #8a4baf; /* Change text color on hover */
+
+        &::after {
+          width: 100%; /* Expand underline on hover */
+        }
+      }
+
+      &.active {
+        color: #8a4baf; /* Active link color */
+        font-weight: 600; /* Bold font weight for active link */
+
+        &::after {
+          width: 100%; /* Full underline for active link */
+        }
       }
     }
   }

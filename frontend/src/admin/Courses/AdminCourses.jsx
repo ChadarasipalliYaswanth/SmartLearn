@@ -60,9 +60,11 @@ const AdminCourses = ({ user }) => {
     myForm.append("file", image);
 
     try {
+      console.log("Submitting course form with image:", image?.name);
       const { data } = await axios.post(`${server}/api/course/new`, myForm, {
         headers: {
           token: localStorage.getItem("token"),
+          "Content-Type": "multipart/form-data"
         },
       });
 
@@ -78,7 +80,9 @@ const AdminCourses = ({ user }) => {
       setPrice("");
       setCategory("");
     } catch (error) {
-      toast.error(error.response.data.message);
+      console.error("Error creating course:", error);
+      toast.error(error.response?.data?.message || "Failed to create course");
+      setBtnLoading(false);
     }
   };
 
@@ -90,7 +94,7 @@ const AdminCourses = ({ user }) => {
           <div className="dashboard-content">
             {courses && courses.length > 0 ? (
               courses.map((e) => {
-                return <CourseCard key={e._id} course={e} />;
+                return <CourseCard key={e._id} course={e} admin={true} />;
               })
             ) : (
               <p>No Courses Yet</p>

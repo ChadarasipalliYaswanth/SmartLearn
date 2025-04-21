@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./auth.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { server } from "../../main";
+import { FiMail, FiArrowLeft, FiLock } from "react-icons/fi";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -24,22 +25,44 @@ const ForgotPassword = () => {
       setBtnLoading(false);
     }
   };
+  
   return (
     <div className="auth-page">
       <div className="auth-form">
-        <h2>Forgot Password</h2>
+        <div className="auth-icon">
+          <FiLock size={36} />
+        </div>
+        
+        <h2>Reset Password</h2>
+        
+        <p className="auth-description">
+          Enter your email address and we'll send you instructions to reset your password.
+        </p>
+        
         <form onSubmit={handleSubmit}>
-          <label htmlFor="text">Enter Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <button disabled={btnLoading} className="common-btn">
-            {btnLoading ? "Please Wait..." : "Forgot Password"}
+          <label htmlFor="email">Email Address</label>
+          <div className="input-group">
+            <FiMail className="input-icon" />
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your registered email"
+              required
+            />
+          </div>
+          
+          <button disabled={btnLoading} type="submit" className="common-btn">
+            {btnLoading ? "Sending..." : "Send Reset Link"}
           </button>
         </form>
+        
+        <p>
+          <Link to="/login" className="back-link">
+            <FiArrowLeft size={14} /> Back to Login
+          </Link>
+        </p>
       </div>
     </div>
   );

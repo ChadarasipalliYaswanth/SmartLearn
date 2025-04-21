@@ -1,41 +1,204 @@
+/* 
+* Modern Authentication Pages Styles
+* Clean, simple design with a professional look
+*/
+
 .auth-page {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  background-image: radial-gradient(circle at 10% 20%, rgba(33, 150, 243, 0.03) 0%, rgba(255, 255, 255, 0) 80%);
+  padding: 20px;
+}
+
+.auth-form {
   background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
 
+.auth-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #2196f3, #1565c0);
+}
+
+.auth-form h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.auth-form form {
+  text-align: left;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #555;
+  font-weight: 500;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background-color: #f8fafc;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0);
+  background-color: #fff;
+}
+
+.auth-form .common-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #2196f3, #1565c0);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+.auth-form .common-btn:hover {
+  background: linear-gradient(to right, #1e88e5, #0d47a1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+
+.auth-form .common-btn:active {
+  transform: translateY(0);
+}
+
+.auth-form .common-btn:disabled {
+  background: #e0e0e0;
+  color: #9e9e9e;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-form p {
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+}
+
+.auth-form a {
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.auth-form a:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+/* Style for ReCAPTCHA */
+.auth-form .recaptcha-container {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
   .auth-form {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
-
-    h2 {
-      font-size: 24px;
-      color: #8a4baf;
-      margin-bottom: 15px;
-    }
-
-    form {
-      text-align: left;
-
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 14px;
-        color: #333;
-      }
-
-      input {
-        width: 92%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-    }
+    padding: 30px 20px;
+    width: 100%;
   }
+  
+  .auth-form h2 {
+    font-size: 24px;
+  }
+  
+  .auth-form input,
+  .auth-form .common-btn {
+    padding: 12px;
+  }
+}
+
+/* Auth description text */
+.auth-description {
+  color: #666;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Auth icon styling */
+.auth-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #2196f3;
+}
+
+/* Input group with icons */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group .input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9e9e9e;
+  font-size: 18px;
+}
+
+.input-group input {
+  padding-left: 45px;
+  margin-bottom: 0;
+}
+
+/* Auth links section */
+.auth-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Back link styling */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }

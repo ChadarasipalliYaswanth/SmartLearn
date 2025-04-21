@@ -13,6 +13,10 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  notes: {
+    type: String,
+    default: "",
+  },
   course: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Courses",

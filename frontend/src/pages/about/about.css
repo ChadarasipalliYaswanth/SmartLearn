@@ -1,22 +1,198 @@
-.about {
-  padding: 80px 0;
-  text-align: center;
-  min-height: 55vh;
+/* About page animations and styles */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .about-content {
-    max-width: 800px;
-    margin: 0 auto;
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-    h2 {
-      font-size: 32px;
-      color: #8a4baf;
-      margin-bottom: 20px;
-    }
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-    p {
-      font-size: 16px;
-      color: #333;
-      line-height: 1.6;
-    }
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.about-animation {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.about-title-animation {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.about-left-animation {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.about-right-animation {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.about-float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Team member card styles */
+.team-member-card {
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.team-member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.team-member-avatar {
+  transition: all 0.3s ease;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.team-member-card:hover .team-member-avatar {
+  transform: scale(1.05);
+}
+
+.team-member-social {
+  transition: all 0.3s ease;
+}
+
+.team-member-social:hover {
+  transform: translateY(-3px);
+}
+
+/* Values section styles */
+.value-icon {
+  transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+  transform: scale(1.15);
+  color: #8a4baf;
+}
+
+/* Timeline styles */
+.timeline-container {
+  position: relative;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+.timeline-item {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8a4baf;
+  border: 3px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* About hero section */
+.about-hero-gradient {
+  background: linear-gradient(135deg, #6a3093 0%, #a044ff 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8a4baf;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6a3093;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .timeline-container::before {
+    left: 32px;
+  }
+  
+  .timeline-item::before {
+    left: 32px;
+    top: 24px;
+  }
+  
+  .about-hero-text {
+    font-size: 2rem !important;
+  }
+  
+  .about-subtitle {
+    font-size: 1.1rem !important;
   }
 }

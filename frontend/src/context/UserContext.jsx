@@ -87,6 +87,13 @@ export const UserContextProvider = ({ children }) => {
       setLoading(false);
     }
   }
+  
+  function logout() {
+    localStorage.removeItem("token");
+    setIsAuth(false);
+    setUser(null);
+    toast.success("Logged out successfully");
+  }
 
   useEffect(() => {
     fetchUser();
@@ -104,6 +111,7 @@ export const UserContextProvider = ({ children }) => {
         registerUser,
         verifyOtp,
         fetchUser,
+        logout,
       }}
     >
       {children}
