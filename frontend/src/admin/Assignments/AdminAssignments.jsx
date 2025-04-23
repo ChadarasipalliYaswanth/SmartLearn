@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../main";
 import toast from "react-hot-toast";
-import "./adminassignments.css";
+import "./Adminassignments.css";
 import moment from "moment";
 import { 
   FiPlus, FiEdit2, FiTrash2, FiEye, FiCalendar, 
