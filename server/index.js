@@ -6,8 +6,6 @@ import http from "http";
 import { Server } from "socket.io";
 import fs from "fs";
 import path from "path";
-
-// Ensure upload directories exist
 const createUploadDirectories = () => {
   const dirs = ["uploads", "uploads/videos", "uploads/notes", "uploads/images"];
   dirs.forEach(dir => {
@@ -17,8 +15,6 @@ const createUploadDirectories = () => {
     }
   });
 };
-
-// Create directories at startup
 createUploadDirectories();
 
 dotenv.config();
