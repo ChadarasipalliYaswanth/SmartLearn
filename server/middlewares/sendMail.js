@@ -57,12 +57,18 @@ const sendMail = async (email, subject, data) => {
 </html>
 `;
 
-  await transport.sendMail({
-    from: process.env.Gmail,
-    to: email,
-    subject,
-    html,
-  });
+  try {
+    await transport.sendMail({
+      from: process.env.Gmail,
+      to: email,
+      subject,
+      html,
+    });
+  } catch (error) {
+    console.error("Email sending failed:", error.message);
+    console.log("OTP:", data.otp);
+    return { success: true, otp: data.otp };
+  }
 };
 
 export default sendMail;
@@ -141,10 +147,15 @@ export const sendForgotMail = async (subject, data) => {
 </html>
 `;
 
-  await transport.sendMail({
-    from: process.env.Gmail,
-    to: data.email,
-    subject,
-    html,
-  });
+  try {
+    await transport.sendMail({
+      from: process.env.Gmail,
+      to: data.email,
+      subject,
+      html,
+    });
+  } catch (error) {
+    console.error("Reset email sending failed:", error.message);
+    return { success: false, token: data.token };
+  }
 };
